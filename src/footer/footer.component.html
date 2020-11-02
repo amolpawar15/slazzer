@@ -1,0 +1,101 @@
+<!-- Bottom Ber -->
+<div class="bottomBer">
+    <ul>
+        <li>
+            <button href="#layers" data-toggle="modal">
+                <i class="icon-layers"></i>
+            </button>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Full Screen">
+                <i class="icon-screen-full"></i>
+            </button>
+        </li>
+        <li>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Fit to Screen">
+                <i class="icon-copy"></i>
+            </button>
+        </li>
+        <li>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Undo">
+                <i class="icon-corner-up-left"></i>
+            </button>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Redo">
+                <i class="icon-corner-up-right"></i>
+            </button>
+        </li>
+        <li>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="reset">
+                <i class="icon-repeat"></i>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="btnToggle" data-toggle="tooltip" data-placement="top" title="Erase">
+                <i class="icon-eraser"></i>
+            </button>
+            <div class="togglediv">
+                <div class="range-slider">
+                    <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="1" max="10">
+                    <span class="range-value"></span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <button type="button" class="btnToggle" data-toggle="tooltip" data-placement="top" title="restore">
+                <i class="icon-history"></i>
+            </button>
+            <div class="togglediv">
+                <div class="range-slider">
+                    <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="1" max="10">
+                    <span class="range-value"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <button type="button" class="">
+                <i class="icon-share"></i>
+                <span>share</span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="">
+                <i class="icon-download2"></i>
+                <span>download</span>
+            </button>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Dragable Popup One / Layers -->
+<div ngDraggable id="layers" class="modal fade dragablePopup">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">layers</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="icon-circle-with-cross"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ol>
+                    <li class="active">
+                        <img src="/assets/images/transparent-bg.jpg" alt="">text layers</li>
+                    <li>
+                        <img src="/assets/images/transparent-bg.jpg" alt="">Image layers</li>
+                </ol>
+                <div class="delete">
+                    <a href="javascript:void(0);" title="">
+                        <i class="icon-trash-o"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

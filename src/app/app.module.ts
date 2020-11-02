@@ -1,18 +1,53 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 
+import { SidebarComponent } from '../sidebar/index';
+import { BgimageComponent } from '../bgimage/index';
+import { BgcolorComponent } from '../bgcolor/index';
+import { TextComponent } from '../text/index';
+import { AddblurComponent } from '../addblur/index';
+import { SaturationEffectsComponent } from '../saturationeffects/index';
+import { ArtsyOptionsComponent } from '../artsyoptions/index';
+import { NavbarComponent } from '../navbar/index';
+import { FooterComponent } from '../footer/index';
+import { AddSymbolComponent } from '../addsymbol/index';
+import { FeacherComponent } from '../feacher/index';
+// packages
+import { AngularDraggableModule } from 'angular2-draggable';
+
+import {CommonService,SettingService } from '../_services/index'
+ 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    BgimageComponent,
+    BgcolorComponent,
+    TextComponent,
+    AddblurComponent,
+    SaturationEffectsComponent,
+    ArtsyOptionsComponent,
+    NavbarComponent,
+    FooterComponent,
+    AddSymbolComponent,
+    FeacherComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRouting,
+    AngularDraggableModule
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ 
+    CommonService,
+    SettingService
+  ],
+  bootstrap: [
+    AppComponent,
+   
+  ]
 })
 export class AppModule { }
