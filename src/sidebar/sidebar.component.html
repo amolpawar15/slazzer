@@ -1,8 +1,4 @@
 <!-- Middle Bar -->
-<button type="button" class="btn btn-primary" (click)="undoSetting()">Undo</button>
-
-<button type="button" class="btn btn-primary" (click)="redoSetting()">Redo</button>
-
 <div class="middleBer">
   <div class="options-ber " [ngClass]="{'collapseOptions' : expendEditer}">
     <span class="closeToggle optionsToggle" (click)="onChangeArrow()">
@@ -10,43 +6,45 @@
     </span>
 
     <ul class="option">
-      <li  *ngIf="bgImagesComponent">
+
+      <li [feachers]="'backgroundImage'">
         <button type="button" (click)="showPanel(1)">
           <i class="icon-pictures"></i>
           <span>Bg image</span>
         </button>
       </li>
-      <li>
+
+      <li [feachers]="'backgroundColor'">
         <button type="button" (click)="showPanel(2)">
           <i class="icon-paintbrush"></i>
           <span>Bg color</span>
         </button>
       </li>
-      <li>
+      <li [feachers]="'narrtion'">
         <button type="button" (click)="showPanel(3)">
           <i class="icon-pencil"></i>
           <span>Text</span>
         </button>
       </li>
-      <li>
+      <li [feachers]="'addBlur'">
         <button type="button" (click)="showPanel(4)">
           <i class="icon-droplet"></i>
           <span>Add Blur</span>
         </button>
       </li>
-      <li>
+      <li [feachers]="'saturationEffects'">
         <button type="button" (click)="showPanel(5)">
           <i class="icon-star"></i>
           <span>Saturation Effects</span>
         </button>
       </li>
-      <li>
+      <li [feachers]="'artsyOptions'">
         <button type="button" (click)="showPanel(6)">
           <i class="icon-heart"></i>
           <span>Artsy Options</span>
         </button>
       </li>
-      <li>
+      <li [feachers]="'addSymbols'">
         <button type="button" (click)="showPanel(7)">
           <i class="icon-omega"></i>
           <span>add symbol</span>
@@ -76,40 +74,41 @@
           <span>Frames</span>
         </button>
       </li>
+
     </ul>
 
     <div class="targetDiv" [hidden]="currentPanel==0">
       <!-- Bg Image -->
-      <div  [hidden]="currentPanel != 1" >
-        <bgimage ></bgimage>
+      <div [hidden]="currentPanel != 1" [feachers]="'backgroundImage'">
+        <bgimage></bgimage>
       </div>
       <!-- Bg Color -->
-      <div class="add-background" [hidden]="currentPanel != 2">
+      <div class="add-background" [hidden]="currentPanel != 2" [feachers]="'backgroundColor'">
         <bgcolor></bgcolor>
       </div>
 
       <!-- Text -->
-      <div class="add-text" [hidden]="currentPanel != 3">
+      <div class="add-text" [hidden]="currentPanel != 3" [feachers]="'narrtion'">
         <text></text>
       </div>
 
       <!-- Blur -->
-      <div id="div4" class="mscroller add-background blur" [hidden]="currentPanel != 4">
+      <div id="div4" class="mscroller add-background blur" [hidden]="currentPanel != 4" [feachers]="'addBlur'">
         <addblur></addblur>
       </div>
 
       <!-- Effects -->
-      <div id="div5" class="mscroller add-effects" [hidden]="currentPanel != 5">
+      <div id="div5" class="mscroller add-effects" [hidden]="currentPanel != 5" [feachers]="'saturationEffects'">
         <saturationeffects></saturationeffects>
       </div>
 
       <!-- Artsy Options -->
-      <div id="div6" class="mscroller add-effects " [hidden]="currentPanel != 6">
+      <div id="div6" class="mscroller add-effects " [hidden]="currentPanel != 6" [feachers]="'artsyOptions'">
         <artsyoptions></artsyoptions>
       </div>
 
       <!-- Add Symbols -->
-      <div id="div7" class="add-background" [hidden]="currentPanel != 7">
+      <div id="div7" class="add-background" [hidden]="currentPanel != 7" [feachers]="'addSymbols'">
         <addsymbol></addsymbol>
       </div>
 
@@ -121,142 +120,141 @@
 
 
   </div>
-
   <div class="editer-main-area" [ngClass]="{'expendEditer' : expendEditer}"></div>
+</div>
 
 
 
 
-  <!--Review Popup -->
-  <div id="mask"></div>
-  <div id="popup" class="apiKey">
-    <div class="sideber">
-      <img src="/assets/images/login-image.jpg" alt="">
+
+
+<!--Review Popup -->
+<div id="mask"></div>
+<div id="popup" class="apiKey">
+  <div class="sideber">
+    <img src="/assets/images/login-image.jpg" alt="">
+  </div>
+  <div class="main__aside">
+    <figure>
+      <img src="/assets/images/logo-icon.svg" alt="">
+    </figure>
+    <h3>Enter your API Key</h3>
+    <div class="api-key">
+      <input type="text" name="" id="" placeholder="Your API Key">
+      <input type="button" value="submit" class="close" data-toggle="modal" data-target="#selectFrame">
     </div>
-    <div class="main__aside">
-      <figure>
-        <img src="/assets/images/logo-icon.svg" alt="">
-      </figure>
-      <h3>Enter your API Key</h3>
-      <div class="api-key">
-        <input type="text" name="" id="" placeholder="Your API Key">
-        <input type="button" value="submit" class="close" data-toggle="modal" data-target="#selectFrame">
+    <p>Don't have API key?
+      <br> Please
+      <a href="javascript:void(0);">click here</a> to get API key
+    </p>
+  </div>
+</div>
+
+
+<!-- Custom Frame -->
+<div class="modal fade custom-frame" id="selectFrame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header align-items-center">
+        <h5 class="modal-title" id="exampleModalLabel">How do you want to start</h5>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            create custom size
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <li>
+              <input type="text" name="" value="" placeholder="width">
+            </li>
+            <li>
+              <input type="text" name="" value="" placeholder="height">
+            </li>
+            <li>
+              <input type="button" name="" value="go">
+            </li>
+          </ul>
+        </div>
       </div>
-      <p>Don't have API key?
-        <br> Please
-        <a href="javascript:void(0);">click here</a> to get API key
-      </p>
+      <div class="modal-body">
+        <h6>Most Popular</h6>
+        <ul>
+          <li>
+            <label for="">
+              <i class="icon-pictures"></i>
+            </label>
+            <input type="file" name="">
+            <span>Upload a photo</span>
+          </li>
+          <li>
+            <label for="">
+              <i class="icon-female"></i>
+            </label>
+            <input type="file" name="">
+            <span>Touch up a photo</span>
+          </li>
+
+          <li *ngFor="let list of popularlist">
+            <a href="javascript:void(0);" title="">
+              <figure>
+                <img src="{{list.img}}" alt="">
+              </figure>
+              <span>{{list.title}}</span>
+            </a>
+          </li>
+
+        </ul>
+        <h6>Most Popular</h6>
+        <ul>
+          <li>
+            <label for="">
+              <i class="icon-pictures"></i>
+            </label>
+            <input type="file" name="">
+            <span>Upload a photo</span>
+          </li>
+          <li>
+            <label for="">
+              <i class="icon-female"></i>
+            </label>
+            <input type="file" name="">
+            <span>Touch up a photo</span>
+          </li>
+          <li *ngFor="let list of popularlist">
+            <a href="javascript:void(0);" title="">
+              <figure>
+                <img src="{{list.img}}" alt="">
+              </figure>
+              <span>{{list.title}}</span>
+            </a>
+          </li>
+
+        </ul>
+        <h6>Most Popular</h6>
+        <ul>
+          <li>
+            <label for="">
+              <i class="icon-pictures"></i>
+            </label>
+            <input type="file" name="">
+            <span>Upload a photo</span>
+          </li>
+          <li>
+            <label for="">
+              <i class="icon-female"></i>
+            </label>
+            <input type="file" name="">
+            <span>Touch up a photo</span>
+          </li>
+          <li *ngFor="let list of popularlist">
+            <a href="javascript:void(0);" title="">
+              <figure>
+                <img src="{{list.img}}" alt="">
+              </figure>
+              <span>{{list.title}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-
-
-  <!-- Custom Frame -->
-  <div  class="modal fade custom-frame" id="selectFrame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header align-items-center">
-          <h5 class="modal-title" id="exampleModalLabel">How do you want to start</h5>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              create custom size
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <li>
-                <input type="text" name="" value="" placeholder="width">
-              </li>
-              <li>
-                <input type="text" name="" value="" placeholder="height">
-              </li>
-              <li>
-                <input type="button" name="" value="go">
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal-body">
-          <h6>Most Popular</h6>
-          <ul>
-            <li>
-              <label for="">
-                <i class="icon-pictures"></i>
-              </label>
-              <input type="file" name="">
-              <span>Upload a photo</span>
-            </li>
-            <li>
-              <label for="">
-                <i class="icon-female"></i>
-              </label>
-              <input type="file" name="">
-              <span>Touch up a photo</span>
-            </li>
-
-            <li *ngFor="let list of popularlist">
-              <a href="javascript:void(0);" title="">
-                <figure>
-                  <img src="{{list.img}}" alt="">
-                </figure>
-                <span>{{list.title}}</span>
-              </a>
-            </li>
-
-          </ul>
-          <h6>Most Popular</h6>
-          <ul>
-            <li>
-              <label for="">
-                <i class="icon-pictures"></i>
-              </label>
-              <input type="file" name="">
-              <span>Upload a photo</span>
-            </li>
-            <li>
-              <label for="">
-                <i class="icon-female"></i>
-              </label>
-              <input type="file" name="">
-              <span>Touch up a photo</span>
-            </li>
-            <li *ngFor="let list of popularlist">
-              <a href="javascript:void(0);" title="">
-                <figure>
-                  <img src="{{list.img}}" alt="">
-                </figure>
-                <span>{{list.title}}</span>
-              </a>
-            </li>
-
-          </ul>
-          <h6>Most Popular</h6>
-          <ul>
-            <li>
-              <label for="">
-                <i class="icon-pictures"></i>
-              </label>
-              <input type="file" name="">
-              <span>Upload a photo</span>
-            </li>
-            <li>
-              <label for="">
-                <i class="icon-female"></i>
-              </label>
-              <input type="file" name="">
-              <span>Touch up a photo</span>
-            </li>
-            <li *ngFor="let list of popularlist">
-              <a href="javascript:void(0);" title="">
-                <figure>
-                  <img src="{{list.img}}" alt="">
-                </figure>
-                <span>{{list.title}}</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> 
-
-
- 
+</div>

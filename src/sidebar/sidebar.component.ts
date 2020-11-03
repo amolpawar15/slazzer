@@ -11,9 +11,10 @@ import 'rxjs/add/observable/of';
 
 
 export class SidebarComponent {
+    operation: any;
     popularlist: any = [];
 
-    // optionsToggle = false;
+    bgImageComponent = false
     expendEditer = false;
 
     currentPanel = 1;
@@ -22,13 +23,12 @@ export class SidebarComponent {
 
     ngOnInit() {
         this.getMostPopularList();
-      
     }
 
     undoSetting() {
         this.bgImagesComponent = true;
     }
-    redoSetting(){
+    redoSetting() {
         this.bgImagesComponent = false;
     }
 

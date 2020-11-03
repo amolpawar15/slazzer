@@ -14,11 +14,12 @@ import { ArtsyOptionsComponent } from '../artsyoptions/index';
 import { NavbarComponent } from '../navbar/index';
 import { FooterComponent } from '../footer/index';
 import { AddSymbolComponent } from '../addsymbol/index';
-import { FeacherComponent } from '../feacher/index';
+
 // packages
 import { AngularDraggableModule } from 'angular2-draggable';
 
-import {CommonService,SettingService } from '../_services/index'
+import {CommonService,SettingService } from '../_services/index';
+import { FeachersDirective } from '../_directives/feachers/index';
  
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import {CommonService,SettingService } from '../_services/index'
     NavbarComponent,
     FooterComponent,
     AddSymbolComponent,
-    FeacherComponent,
+    FeachersDirective,
   ],
   imports: [
     BrowserModule,
